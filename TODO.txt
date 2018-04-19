@@ -1,0 +1,3 @@
+Crear estructura arbol.
+Crear metodo iterativo de crecimiento de arbol.
+Especificar meta estrctura (angulos, largo, etc.)
