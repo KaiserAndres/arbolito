@@ -1,6 +1,3 @@
-from hoja import Hoja
-
-
 class Rama:
     def __init__(self, numero_elementos):
         self.numero_elementos = numero_elementos
