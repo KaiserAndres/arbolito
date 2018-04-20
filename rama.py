@@ -7,13 +7,13 @@ class Rama:
         self.siguientes = [Hoja() for i in range(numero_elementos)]
 
     def crecer(self):
-        for i in range(self.numero_elementos):
-            self.siguientes[i] = Rama(self.numero_elementos)
+        for i, e in enumerate(self.siguientes):
+            if e is Hoja:
+                self.siguientes[i] = Rama(self.numero_elementos)
+            elif e is Rama:
+                e.crecer()
 
     def __str__(self):
         my_string = "R"
         for sig in self.siguientes:
-            if sig is Hoja:
-                my_string += "H"
-            elif sig is Rama:
-                my_string += "(" + sig.__str__() + ")"
+            my_string += "(" + sig.__str__() + ")"
