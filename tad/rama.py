@@ -12,8 +12,12 @@ class Rama:
         Crear nuevas ramas segun el número de elementos.
         Si las ramas ya existen, pasa la llamada a ellas para que estas crezcan.
         '''
-        for _ in range(self.numero_elementos):
-            self.siguientes.append(Rama(self.numero_elementos))
+        if self.siguientes:
+            for sig in self.siguientes:
+                sig.crecer()
+        else:
+            for i in range(self.numero_elementos):
+                self.siguientes.append(Rama(self.numero_elementos))
 
     def __str__(self):
         '''
@@ -21,10 +25,14 @@ class Rama:
         '''
         my_string = "R("
         if self.siguientes:
-            for sig in self.siguientes:
+            for i, sig in enumerate(self.siguientes):
                 my_string += sig.__str__()
+                if i != self.numero_elementos - 1:
+                    my_string += ', '
         else:
-            for _ in range(self.numero_elementos):
+            for i in range(self.numero_elementos):
                 my_string += 'H'
+                if i != self.numero_elementos - 1:
+                    my_string += ', '
         my_string += ')'
         return my_string
